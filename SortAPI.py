@@ -8,7 +8,7 @@ def check_if_open(business):
 
 
 def check_if_address(business):
-    if business['location']['address1'] == None:
+    if business['location']['address1'] == None or business['location']['address1'].strip() == '':
         return False
     else:
         return True
@@ -17,7 +17,7 @@ def get_data_from_API(business):
     if check_if_open and check_if_address:
         name = business['name']
         address_location = business['location']['display_address']
-        address = f'{address_location[0]}, {address_location[1]}'
+        address = ' '.join(str(x) for x in address_location)
         services = ''
         len_categories = len(business['categories'])
         for categories in business['categories']:
