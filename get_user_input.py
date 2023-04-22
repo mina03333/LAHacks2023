@@ -12,17 +12,17 @@ def get_activity() -> str:
         for i in range(len(activity_list)):
             print(f'{i+1}: {activity_list[i]}')
 
-        activities = input("Select which activity you want to do: ")
+        activities = input("\nSelect which activity you want to do: ")
         is_int = False
 
         try:
             int(activities)
             is_int = True
         except ValueError:
-            print("Please enter a number, not anything else.")
+            print("Please enter a number, not anything else.\n")
 
         if is_int and (int(activities) > 5 or int(activities) < 1):
-            print("Please enter a valid number.")
+            print("Please enter a valid number.\n")
         elif is_int:
             is_activities_valid = True
 
@@ -40,10 +40,10 @@ def get_distance():
             int(distance)
             is_int = True
         except ValueError:
-            print("Please enter a number, not anything else.")
+            print("Please enter a number, not anything else.\n")
 
         if is_int and (int(distance) > 50 or int(distance) < 0):
-            print("Please enter a valid number.")
+            print("Please enter a valid number.\n")
         elif is_int:
             break
 
