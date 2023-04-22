@@ -1,5 +1,6 @@
 import requests
 import json
+import SortAPI
 from get_user_input import get_location, get_activity, get_distance
 
 
@@ -7,7 +8,7 @@ APIKEY = 'Bearer rlDWY6ro4dO-te4yEdDxzDmOG5Zx0pr8jtWYbvbMvF11brloUF0oeOzaoCo1I_9
 
 
 def get_data_from_API(location, activity, distance):
-    url = f"https://api.yelp.com/v3/businesses/search?location={location}&term={activity}&radius={distance}&sort_by=distance&limit={2}"
+    url = f"https://api.yelp.com/v3/businesses/search?location={location}&term={activity}&radius={distance}&sort_by=distance&limit={5}"
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
@@ -15,7 +16,10 @@ def get_data_from_API(location, activity, distance):
     }
 
     response = requests.get(url, headers=headers)
-    print(response.json()['businesses'])
+    num_of_business = response.json()['businesses']
+    for business in num_of_business:
+        print(SortAPI.get_data_from_API(business))
+
 
 def main() -> None:
     location = get_location()
