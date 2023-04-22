@@ -6,7 +6,7 @@ def get_location():
 def get_activity() -> str:
     is_activities_valid = False
     activities = None
-    activity_list = ['restaurant', 'entertiment',
+    activity_list = ['restaurant', 'entertainment',
                      'outdoors', 'drinks', 'sports']
     while is_activities_valid == False:
         for i in range(len(activity_list)):
