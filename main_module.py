@@ -28,7 +28,7 @@ def main() -> None:
     location = get_location()
     activity = get_activity()
     distance = get_distance()
-    get_data_from_API(location, activity, int(distance)*1600)
+    #get_data_from_API(location, activity, int(distance)*1600)
 
 
 if __name__ == '__main__':

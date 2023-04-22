@@ -12,21 +12,29 @@ def get_activity() -> str:
         for i in range(len(activity_list)):
             print(f'{i+1}: {activity_list[i]}')
 
-        activities = input("\nSelect which activity you want to do: ")
+        activities = input("\nSelect which activity you want to do (If you would like to make multiple choices, please seperate each choice by a space): ")
+        activities = activities.split()
+
         is_int = False
 
         try:
-            int(activities)
+            for i in activities:
+                int(i)
             is_int = True
         except ValueError:
             print("Please enter a number, not anything else.\n")
 
-        if is_int and (int(activities) > 5 or int(activities) < 1):
-            print("Please enter a valid number.\n")
-        elif is_int:
+        if is_int:
+            for i in activities:
+                if (int(i) > 5 or int(i) < 1):
+                    print("Please enter a valid number.\n")
+                    break
             is_activities_valid = True
 
-    activity_name = activity_list[int(activities) - 1]
+    activity_name = []
+    for i in activities:
+        activity_name.append(activity_list[int(i) - 1])
+
     return activity_name
 
 
