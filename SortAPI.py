@@ -26,7 +26,7 @@ def get_data_from_API(business):
             else:
                 services += categories['title'] + ', '
             len_categories -= 1
-        phone_num = business['display_phone']
+        phone_num = business['display_phone'] if len(business['display_phone'].strip()) > 0 else 'N/A'
         return f'Name: {name}\nAddress: {address}\nServices: {services}\nPhone Number: {phone_num}\n'
     else:
         return None
