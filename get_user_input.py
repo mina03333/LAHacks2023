@@ -6,7 +6,8 @@ def get_location():
 def get_activity() -> str:
     is_activities_valid = False
     activities = None
-    activity_list = ['food', 'entertiment', 'outdoors', 'drinks', 'sports']
+    activity_list = ['restaurant', 'entertiment',
+                     'outdoors', 'drinks', 'sports']
     while is_activities_valid == False:
         for i in range(len(activity_list)):
             print(f'{i+1}: {activity_list[i]}')
@@ -41,7 +42,7 @@ def get_distance():
         except ValueError:
             print("Please enter a number, not anything else.")
 
-        if is_int and (int(distance) > 30 or int(distance) < 0):
+        if is_int and (int(distance) > 50 or int(distance) < 0):
             print("Please enter a valid number.")
         elif is_int:
             break

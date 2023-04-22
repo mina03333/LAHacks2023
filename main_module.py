@@ -2,7 +2,7 @@ import requests
 from get_user_input import get_location, get_activity, get_distance
 
 
-APIKEY = 'Bearer vIJp-pW2ISoT0G0LVHUpdwhRfESBy_W5Wl53c2kpoalMOEIATNBkxNK_9ZNmn1IOjo6fG9Kb6tHxoGZJGl61DgB5FfkvgOj8dKIPNIMxsqMMAPGoLGVbXCuzn_NDZHYx'
+APIKEY = 'Bearer rlDWY6ro4dO-te4yEdDxzDmOG5Zx0pr8jtWYbvbMvF11brloUF0oeOzaoCo1I_9nZIU72r4QqeHcvqU-SrxNTFDP56g6WhiRcDrQsKADdDJ-PEio2YlLiOxpoiVEZHYx'
 
 
 def get_data_from_API(location, activity, distance):
@@ -21,7 +21,7 @@ def main() -> None:
     location = get_location()
     activity = get_activity()
     distance = get_distance()
-    get_data_from_API(location, activity, distance)
+    get_data_from_API(location, activity, int(distance)*1600)
 
 
 if __name__ == '__main__':
