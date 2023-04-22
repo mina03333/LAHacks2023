@@ -3,9 +3,10 @@ def get_location():
     return location
 
 
-def get_activity():
+def get_activity() -> str:
     is_activities_valid = False
     activities = None
+    activitiy_list = ['food', 'entertiment', 'outdoors', 'drinks', 'sports']
     while is_activities_valid == False:
         print("1. temp activity")
         print("2. temp activity")
@@ -25,8 +26,8 @@ def get_activity():
             print("Please enter a valid number.")
         elif is_int:
             is_activities_valid = True
-
-    return activities
+    activity_name = activitiy_list[int(activities) -1]
+    return activity_name
 
 
 def get_distance():
