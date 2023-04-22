@@ -33,7 +33,7 @@ def get_activity() -> str:
 def get_distance():
     distance = None
     while True:
-        distance = input("Enter distance in miles: ")
+        distance = input("Enter distance in miles(max is 25): ")
         is_int = False
 
         try:
@@ -42,7 +42,7 @@ def get_distance():
         except ValueError:
             print("Please enter a number, not anything else.\n")
 
-        if is_int and (int(distance) > 50 or int(distance) < 0):
+        if is_int and (int(distance) > 25 or int(distance) < 0):
             print("Please enter a valid number.\n")
         elif is_int:
             break

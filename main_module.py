@@ -16,6 +16,7 @@ def get_data_from_API(location, activity, distance):
     }
 
     response = requests.get(url, headers=headers)
+    print(response.text)
     num_of_business = response.json()['businesses']
     print('-'*30)
     print('Here are some options: \n')
