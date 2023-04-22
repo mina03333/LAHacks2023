@@ -1,18 +1,16 @@
 def get_location():
-    location = input("Enter your location: ")
+    location = input("Enter your location (Please do not use abbreviations): ")
     return location
 
 
 def get_activity() -> str:
     is_activities_valid = False
     activities = None
-    activitiy_list = ['food', 'entertiment', 'outdoors', 'drinks', 'sports']
+    activity_list = ['food', 'entertiment', 'outdoors', 'drinks', 'sports']
     while is_activities_valid == False:
-        print("1. temp activity")
-        print("2. temp activity")
-        print("3. temp activity")
-        print("4. temp activity")
-        print("5. temp activity")
+        for i in range(len(activity_list)):
+            print(f'{i+1}: {activity_list[i]}')
+
         activities = input("Select which activity you want to do: ")
         is_int = False
 
@@ -26,7 +24,8 @@ def get_activity() -> str:
             print("Please enter a valid number.")
         elif is_int:
             is_activities_valid = True
-    activity_name = activitiy_list[int(activities) -1]
+
+    activity_name = activity_list[int(activities) - 1]
     return activity_name
 
 
