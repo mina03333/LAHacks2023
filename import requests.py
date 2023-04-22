@@ -12,7 +12,6 @@ headers = {
     "accept": "application/json",
     "content-type": "application/json",
     "Authorization": APIKEY
-    #"postal_code":zip_code
 
 }
 
