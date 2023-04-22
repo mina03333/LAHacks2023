@@ -16,19 +16,19 @@ def get_data_from_API(location, activity, distance):
     }
 
     response = requests.get(url, headers=headers)
-    print(response.text)
     num_of_business = response.json()['businesses']
     print('-'*30)
-    print('Here are some options: \n')
+    print(f'Here are some options for {activity}: \n')
     for business in num_of_business:
         print(SortAPI.get_data_from_API(business))
 
 
 def main() -> None:
     location = get_location()
-    activity = get_activity()
+    activities = get_activity()
     distance = get_distance()
-    #get_data_from_API(location, activity, int(distance)*1600)
+    for activity in activities:
+        get_data_from_API(location, activity, int(distance)*1600)
 
 
 if __name__ == '__main__':
