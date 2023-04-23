@@ -63,7 +63,7 @@ def get_data_from_API(location, activity, distance):
 
     response = requests.get(url, headers=headers)
     random_list = []
-    for i in range(0, 5):
+    for i in range(5):
         num = random.randint(1, limit-1)
         random_list.append(num)
     num_of_business = response.json()['businesses']

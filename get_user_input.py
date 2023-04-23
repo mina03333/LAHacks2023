@@ -1,5 +1,5 @@
 def get_location():
-    location = input("Enter your location (Please do not use abbreviations): ")
+    location = input("Enter your location(city, or specific address): ")
     return location
 
 
