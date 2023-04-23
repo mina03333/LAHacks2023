@@ -33,7 +33,7 @@ def main() -> None:
     activities = get_activity()
     distance = get_distance()
     final_list = []
-    for i in activity:
+    for i in activities:
         final_list.append(get_data_from_API(location, i, int(distance)*1600))
 
     stringify = ''
