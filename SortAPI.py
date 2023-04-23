@@ -1,4 +1,5 @@
 import requests
+import random
 
 APIKEY = 'Bearer rlDWY6ro4dO-te4yEdDxzDmOG5Zx0pr8jtWYbvbMvF11brloUF0oeOzaoCo1I_9nZIU72r4QqeHcvqU-SrxNTFDP56g6WhiRcDrQsKADdDJ-PEio2YlLiOxpoiVEZHYx'
 
@@ -16,16 +17,18 @@ def check_if_address(business):
     else:
         return True
 
+
 def price_to_range(business):
-    price = business['price']
-    if price == '$':
-        return "less than $10"
-    elif price == "$$":
-        return "$11-$30"
-    elif price == "$$$":
-        return "$31-$60"
-    elif price == "$$$$":
-        return "more than $60"
+    if 'price' in business:
+        price = business['price']
+        if price == '$':
+            return "less than $10"
+        elif price == "$$":
+            return "$11-$30"
+        elif price == "$$$":
+            return "$31-$60"
+        elif price == "$$$$":
+            return "more than $60"
     else: 
         return "There is no specified price range."
 
@@ -50,7 +53,8 @@ def sort_data(business):
 
 def get_data_from_API(location, activity, distance):
     final_list = []
-    url = f"https://api.yelp.com/v3/businesses/search?location={location}&term={activity}&radius={distance}&sort_by=distance&limit={2}"
+    limit = random.randint(10, 30)
+    url = f"https://api.yelp.com/v3/businesses/search?location={location}&term={activity}&radius={distance}&sort_by=distance&limit={limit}"
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
@@ -58,12 +62,12 @@ def get_data_from_API(location, activity, distance):
     }
 
     response = requests.get(url, headers=headers)
-    #print(response.text)
+    random_list = []
+    for i in range(0, 5):
+        num = random.randint(1, limit-1)
+        random_list.append(num)
     num_of_business = response.json()['businesses']
-    # print('-'*30)
-    # print('Here are some options: \n')
-    for business in num_of_business:
-        final_list.append(sort_data(business))
+    for i in range(len(random_list)):
+        final_list.append(sort_data(num_of_business[random_list[i]]))
 
     return final_list
-    
