@@ -17,6 +17,7 @@ def get_data_from_API(business):
     if check_if_open and check_if_address:
         name = business['name']
         address_location = business['location']['display_address']
+        price = business['price']
         address = ' '.join(str(x) for x in address_location)
         services = ''
         len_categories = len(business['categories'])
@@ -27,6 +28,7 @@ def get_data_from_API(business):
                 services += categories['title'] + ', '
             len_categories -= 1
         phone_num = business['display_phone'] if len(business['display_phone'].strip()) > 0 else 'N/A'
-        return f'Name: {name}\nAddress: {address}\nServices: {services}\nPhone Number: {phone_num}\n'
+        return f'Name: {name}\nPrice Range: {price}\nAddress: {address}\nServices: {services}\nPhone Number: {phone_num}\n'
     else:
         return None
+    
