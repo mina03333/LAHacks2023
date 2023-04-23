@@ -11,4 +11,18 @@ def itinerary(info):
         k=0,
         stop_sequences=[],
         return_likelihoods='NONE')
+    schedule = 'Option: {}'.format(response.generations[0].text)
+    return schedule
+
+"""
+def itinerary_descprtion(schedule):
+    response = co.generate(
+        model='command-xlarge-nightly',
+        prompt=f'With this schedule itinerary:({schedule}), can you make a description per item on the schedule',
+        max_tokens=1432,
+        temperature=0.9,
+        k=0,
+        stop_sequences=[],
+        return_likelihoods='NONE')  
     print('Option: {}'.format(response.generations[0].text))
+"""

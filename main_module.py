@@ -1,6 +1,6 @@
 import SortAPI
 from get_user_input import get_location, get_activity, get_distance
-from itinerary_recommendations import itinerary
+from itinerary_recommendations import itinerary, itinerary_descprtion
 
 def main() -> None:
     quit = False
@@ -17,7 +17,8 @@ def main() -> None:
             for j in i:
                 stringify += j + '\n'
 
-        itinerary(stringify)
+        schedule = itinerary(stringify)
+        print(schedule)
         quit_input = input("If you are happy with your result, enter 'q' to exit: ")
         if quit_input.lower().strip() == 'q':
             quit = True
