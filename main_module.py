@@ -1,6 +1,6 @@
 import SortAPI
 from get_user_input import get_location, get_activity, get_distance
-from itinerary_recommendations import itinerary, itinerary_descprtion
+from itinerary_recommendations import itinerary
 
 def main() -> None:
     quit = False
