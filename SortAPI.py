@@ -1,4 +1,7 @@
-import json
+import requests
+
+APIKEY = 'Bearer rlDWY6ro4dO-te4yEdDxzDmOG5Zx0pr8jtWYbvbMvF11brloUF0oeOzaoCo1I_9nZIU72r4QqeHcvqU-SrxNTFDP56g6WhiRcDrQsKADdDJ-PEio2YlLiOxpoiVEZHYx'
+
 
 def check_if_open(business):
     if business['is_closed']:
@@ -26,7 +29,7 @@ def price_to_range(business):
     else: 
         return "There is no specified price range."
 
-def get_data_from_API(business):
+def sort_data(business):
     if check_if_open and check_if_address:
         name = business['name']
         address_location = business['location']['display_address']
@@ -45,5 +48,22 @@ def get_data_from_API(business):
         return None
     
 
+def get_data_from_API(location, activity, distance):
+    final_list = []
+    url = f"https://api.yelp.com/v3/businesses/search?location={location}&term={activity}&radius={distance}&sort_by=distance&limit={2}"
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "Authorization": APIKEY
+    }
 
+    response = requests.get(url, headers=headers)
+    #print(response.text)
+    num_of_business = response.json()['businesses']
+    # print('-'*30)
+    # print('Here are some options: \n')
+    for business in num_of_business:
+        final_list.append(sort_data(business))
+
+    return final_list
     
